@@ -6,19 +6,19 @@ function toggleMainButton() {
   const isVisible = window.Telegram.WebApp.MainButton.isVisible
   if (isVisible) {
     window.Telegram.WebApp.MainButton.hide()
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('hard')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('hard')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('hard')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('hard')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('hard')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy')
   }
   else {
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light')
-    window.Telegram.WebApp.HapticFeedback.impactOccurred('light')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
     window.Telegram.WebApp.MainButton.show()
   }
 }
