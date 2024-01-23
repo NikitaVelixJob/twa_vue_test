@@ -31,6 +31,8 @@ function onClick() {
     coins.value.children[0].remove()
   }, 1500)
 }
+
+const isTouching = ref(false)
 </script>
 
 <template>
@@ -52,7 +54,15 @@ function onClick() {
 
     <div class="h-full w-full flex items-end">
       <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto" @click="onClick">
-        <img src="/buns/Police.png" alt="bun" class="group-active:scale-90 scale-100 h-full mt-auto">
+        <img
+          src="/buns/Police.png" alt="bun"
+          class="group-active:scale-90 scale-100 w-full min-w-260px h-fit mt-auto"
+          :class="{
+            on_touch_bun: isTouching,
+          }"
+          @touchstart="isTouching = true"
+          @touchend="isTouching = false"
+        >
       </div>
     </div>
   </div>
@@ -103,5 +113,9 @@ body {
 
 #usercard {
   text-align: center;
+}
+
+.on_touch_bun {
+  scale: 0.9;
 }
 </style>
