@@ -38,7 +38,7 @@ const isTouching = ref(false)
 <template>
   <div
     :style="{ backgroundImage: `url(/attr/bg/DarkForest.png)`, backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundSize: 'cover' }"
-    class="w-screen h-100dvh relative object-cover object-bottom "
+    class="w-screen h-screen overflow-clip relative object-cover object-bottom "
   >
     <!-- <ClickPointText amount="10" color="text-orange-400" /> -->
     <div ref="coins" class="w-full h-full absolute">
