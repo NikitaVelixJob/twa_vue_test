@@ -13,6 +13,8 @@ const textComponents = ref<{
 }[]>([])
 const coins = ref()
 function onClick() {
+  window.Telegram.WebApp.HapticFeedback.impactOccurred('medium')
+
   // generate a new insanse of text on click
   const text = '12'
   const textColor = 'text-orange-400'
