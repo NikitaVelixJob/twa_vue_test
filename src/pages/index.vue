@@ -35,6 +35,7 @@ function onClick() {
 }
 
 const isTouching = ref(false)
+
 </script>
 
 <template>

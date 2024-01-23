@@ -1,6 +1,6 @@
 <script setup lang="ts">
 onMounted(() => {
-  window.Telegram.WebApp.WebApp.expand()
+  window.Telegram.WebApp.expand()
 })
 </script>
 
