@@ -53,7 +53,7 @@ const isTouching = ref(false)
     </div>
 
     <div class="h-full w-full flex items-end">
-      <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto" @click="onClick">
+      <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto z-1000" @click="onClick">
         <img
           src="/buns/Police.png" alt="bun"
           class="group-active:scale-90 scale-100 w-full min-w-260px h-fit mt-auto"
