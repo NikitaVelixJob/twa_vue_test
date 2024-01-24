@@ -25,13 +25,12 @@ function onClick() {
   const amounts = ['12', '15', '18']
   const sizes = ['text-4xl', 'text-6xl', 'text-8xl']
   const randomIndex = Math.floor(Math.random() * amounts.length)
-  const text = amounts[randomIndex]
-  // const textColor = colors[randomIndex]
+  const text = isOnFire.value ? (Number(amounts[randomIndex]) * 10).toString() : amounts[randomIndex]
   const size = sizes[randomIndex]
   const item = {
     id: uuidv4(),
     amount: text,
-    color: defaultColor,
+    color: isOnFire.value ? colorsOnFire[randomIndex] : defaultColor,
     component: ClickPointText,
     size,
   }
@@ -55,12 +54,20 @@ onMounted(() => {
 
 <template>
   <div
-    :style="{ backgroundImage: `url(/attr/bg/BTC.png)`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }"
+    :style="{
+      backgroundImage: `url(/attr/bg/Sunset.png)`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }"
     class="w-screen h-screen overflow-clip relative object-cover object-bottom"
   >
-    <div class="bg-black/50 backdrop-blur-xl w-full absolute top-0 z-10 h-10% flex items-center justify-center">
+    <div class="bg-black/50 backdrop-blur-xl w-full absolute top-0 z-100 h-10% flex items-center justify-between px-10">
       <div class="text-3xl font-black">
         {{ points }}
+      </div>
+      <div class="bg-gradient-to-r from-orange-400 to-orange-600 border-orange-600 border rounded-xl px-4 py-1" @click="isOnFire = !isOnFire">
+        TOGGLE FIRE
       </div>
     </div>
     <!-- <ClickPointText amount="10" color="text-orange-400" /> -->
@@ -90,9 +97,11 @@ onMounted(() => {
           @touchend="isTouching = false"
         >
 
-        <div class="absolute bottom-0 z-0 mix-blend-screen h-80%">
-          <img src="/fire.gif" class="mix-blend-screen h-full">
-        </div>
+        <Transition>
+          <div v-if="isOnFire" class="absolute bottom-0 z-0 mix-blend-screen h-80%">
+            <img src="/fire.gif" class="mix-blend-screen h-full">
+          </div>
+        </Transition>
       </div>
     </div>
   </div>
