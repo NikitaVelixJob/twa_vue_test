@@ -16,7 +16,7 @@ const randomOffset = () => randomOffsets[randomIndex]
 </script>
 
 <template>
-  <div class="w-full h-full fixed flex items-center justify-center z-0 got_coin" :class="color">
+  <div class="w-full h-full fixed flex items-center justify-center z-15 got_coin" :class="color">
     <div
       class="font-black absolute"
       :class="size"

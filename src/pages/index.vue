@@ -13,22 +13,25 @@ const textComponents = ref<{
   component: Component
   size: string
 }[]>([])
+const isOnFire = ref(false)
+
 const coins = ref()
 function onClick() {
   window.Telegram.WebApp.HapticFeedback.impactOccurred('medium')
 
   // generate a new insanse of text on click
-  const colors = ['text-orange-200', 'text-orange-400', 'text-orange-600']
+  const colorsOnFire = ['text-orange-200', 'text-orange-400', 'text-orange-600']
+  const defaultColor = 'text-white/60'
   const amounts = ['12', '15', '18']
   const sizes = ['text-4xl', 'text-6xl', 'text-8xl']
   const randomIndex = Math.floor(Math.random() * amounts.length)
   const text = amounts[randomIndex]
-  const textColor = colors[randomIndex]
+  // const textColor = colors[randomIndex]
   const size = sizes[randomIndex]
   const item = {
     id: uuidv4(),
     amount: text,
-    color: textColor,
+    color: defaultColor,
     component: ClickPointText,
     size,
   }
@@ -52,10 +55,10 @@ onMounted(() => {
 
 <template>
   <div
-    :style="{ backgroundImage: `url(/attr/bg/DarkForest.png)`, backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundSize: 'cover' }"
+    :style="{ backgroundImage: `url(/attr/bg/BTC.png)`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }"
     class="w-screen h-screen overflow-clip relative object-cover object-bottom"
   >
-    <div class="bg-black/50 backdrop-blur-xl w-full absolute top-0 z-10 h-10% flex items-center justify-center ">
+    <div class="bg-black/50 backdrop-blur-xl w-full absolute top-0 z-10 h-10% flex items-center justify-center">
       <div class="text-3xl font-black">
         {{ points }}
       </div>
@@ -76,16 +79,20 @@ onMounted(() => {
       {{ data }}
     </div> -->
     <div class="h-full w-full flex items-end">
-      <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto z-1000" @click="onClick">
+      <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto z-1000 relative" @click="onClick">
         <img
           src="/buns/Police.png" alt="bun"
-          class="group-active:scale-90 scale-100 w-full aspect-square h-fit mt-auto select-none"
+          class="group-active:scale-90 scale-100 w-full aspect-square h-fit mt-auto select-none z-10"
           :class="{
             on_touch_bun: isTouching,
           }"
           @touchstart="isTouching = true"
           @touchend="isTouching = false"
         >
+
+        <div class="absolute bottom-0 z-0 mix-blend-screen h-80%">
+          <img src="/fire.gif" class="mix-blend-screen h-full">
+        </div>
       </div>
     </div>
   </div>
