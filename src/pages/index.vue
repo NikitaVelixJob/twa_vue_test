@@ -86,10 +86,10 @@ onMounted(() => {
       {{ data }}
     </div> -->
     <div class="h-full w-full flex items-end">
-      <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto z-1000 relative" @click="onClick">
+      <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto z-1000 relative" @touchend="onClick">
         <img
           src="/buns/Police.png" alt="bun"
-          class="group-active:scale-90 scale-100 w-full aspect-square h-fit mt-auto select-none z-10"
+          class="w-full aspect-square h-fit mt-auto select-none z-10"
           :class="{
             on_touch_bun: isTouching,
           }"
@@ -155,6 +155,5 @@ body {
 }
 
 .on_touch_bun {
-  scale: 0.9;
 }
 </style>
