@@ -72,9 +72,9 @@ onMounted(() => {
         />
       </template>
     </div>
-    <div class="max-w-screen">
+    <!-- <div class="max-w-screen">
       {{ data }}
-    </div>
+    </div> -->
     <div class="h-full w-full flex items-end">
       <div class="w-full h-full flex items-end justify-center group z-10 max-h-70% mt-auto z-1000" @click="onClick">
         <img
