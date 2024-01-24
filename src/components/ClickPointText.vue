@@ -2,17 +2,26 @@
 defineProps<{
   amount: string
   color: string
+  size: string
 }
 >()
 
 onActivated(() => {
   window.Telegram.WebApp.HapticFeedback.impactOccurred('light')
 })
+
+const randomOffsets = [-100, -50, 0, 50, 100]
+const randomIndex = Math.floor(Math.random() * randomOffsets.length)
+const randomOffset = () => randomOffsets[randomIndex]
 </script>
 
 <template>
   <div class="w-full h-full fixed flex items-center justify-center z-0 got_coin" :class="color">
-    <div class="font-black text-8xl">
+    <div
+      class="font-black absolute"
+      :class="size"
+      :style="{ transform: `translate(${randomOffset()}px, ${randomOffset()}px)` }"
+    >
       {{ amount }}
     </div>
   </div>
