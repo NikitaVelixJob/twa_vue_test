@@ -95,7 +95,7 @@ watchDebounced(
 
 )
 async function getUserData() {
-  if (!WebApp.value?.initDataUnsafe?.user?.id && !local_ID.value)
+  if (!WebApp.value?.initDataUnsafe?.user?.id)
     return
 
   const { data } = await supabase
@@ -105,6 +105,16 @@ async function getUserData() {
 
   if (data)
     users_data.value = data[0]
+
+  if (data?.length === 0 && WebApp.value?.initDataUnsafe?.user?.id) {
+    const { data, error } = await supabase
+      .from('users')
+      .insert({
+        username: WebApp.value?.initDataUnsafe?.user?.username,
+        telegram_id: WebApp.value?.initDataUnsafe?.user?.id,
+        coins: 0,
+      })
+  }
 }
 
 data.value = WebApp.value.initDataUnsafe
