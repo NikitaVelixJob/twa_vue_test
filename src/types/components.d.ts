@@ -10,5 +10,9 @@ declare module 'vue' {
     ClickPointText: typeof import('./../components/ClickPointText.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Shop: typeof import('./../components/Shop.vue')['default']
+    ShopItem: typeof import('./../components/Shop/Item.vue')['default']
+    UIButton: typeof import('./../components/UI/Button.vue')['default']
+    UIIcon: typeof import('./../components/UI/Icon.vue')['default']
   }
 }

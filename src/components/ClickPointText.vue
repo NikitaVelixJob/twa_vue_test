@@ -18,7 +18,7 @@ const randomOffset = () => randomOffsets[randomIndex]
 <template>
   <div class="w-full h-full fixed flex items-center justify-center z-10 got_coin" :class="color">
     <div
-      class="font-black absolute"
+      class="font-black absolute text-white/70"
       :class="size"
       :style="{ transform: `translate(${randomOffset()}px, ${randomOffset()}px)` }"
     >

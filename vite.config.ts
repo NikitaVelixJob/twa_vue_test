@@ -8,6 +8,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
 import Inspect from 'vite-plugin-inspect'
 import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
+import basicSsl from '@vitejs/plugin-basic-ssl'
 
 export default defineConfig({
   resolve: {
@@ -46,6 +47,7 @@ export default defineConfig({
       eslintrc: {
         enabled: true,
       },
+
     }),
 
     // https://github.com/antfu/unocss
@@ -60,6 +62,16 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-inspect
     Inspect(),
+
+    // https://github.com/vitejs/vite-plugin-basic-ssl
+    // basicSsl({
+    //   /** name of certification */
+    //   name: 'test',
+    //   /** custom trust domains */
+    //   domains: ['*.custom.com'],
+    //   /** custom certification directory */
+    //   certDir: '/Users/.../.devServer/cert',
+    // }),
   ],
 
   server: {

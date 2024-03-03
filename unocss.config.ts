@@ -9,6 +9,16 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  shortcuts: [
+    {
+      ic: 'items-center',
+      ie: 'items-end',
+      is: 'items-start',
+      jc: 'justify-center',
+      je: 'justify-end',
+      js: 'justify-start',
+    },
+  ],
   presets: [
     presetUno(),
     presetAttributify(),
